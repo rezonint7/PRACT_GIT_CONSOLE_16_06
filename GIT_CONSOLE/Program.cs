@@ -34,8 +34,8 @@ string cryptText (string command, object? arg1 = null, string arg2 = "") => (com
     ("HELP", _, _) => getHelp(),
     ("CAESAR", _, _) => Cesar.Encrypt(Convert.ToInt32(arg1), arg2),
     ("DECRYPT_CAESAR", _, _) => Cesar.Decrypt(Convert.ToInt32(arg1), arg2),
-    ("SUB", _, _) => getHelp(),
-    ("DECRYPT_SUB", _, _) => getHelp(),
+    ("SUB", _, _) => Simplereplacement.Encrypt(Convert.ToString(arg1), arg2),
+    ("DECRYPT_SUB", _, _) => Simplereplacement.Decipher(Convert.ToString(arg1), arg2),
     ("VIGENERE", _, _) => Vagner.Encrypt(arg2.ToString()),
     ("DECRYPT_VIGENERE", _, _) => Vagner.Decrypt(arg2.ToString()),
     _ => ""

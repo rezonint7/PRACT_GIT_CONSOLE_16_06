@@ -987,23 +987,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\st310-12\\.nuget\\packages\\": {},
+    "C:\\Users\\sujye\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\st310-12\\Desktop\\danya\\PRACT_GIT_CONSOLE\\TESTS\\TESTS.csproj",
+      "projectUniqueName": "Z:\\Work_in_VS\\PRACT_GIT_CONSOLE_16_06\\TESTS\\TESTS.csproj",
       "projectName": "TESTS",
-      "projectPath": "C:\\Users\\st310-12\\Desktop\\danya\\PRACT_GIT_CONSOLE\\TESTS\\TESTS.csproj",
-      "packagesPath": "C:\\Users\\st310-12\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\st310-12\\Desktop\\danya\\PRACT_GIT_CONSOLE\\TESTS\\obj\\",
+      "projectPath": "Z:\\Work_in_VS\\PRACT_GIT_CONSOLE_16_06\\TESTS\\TESTS.csproj",
+      "packagesPath": "C:\\Users\\sujye\\.nuget\\packages\\",
+      "outputPath": "Z:\\Work_in_VS\\PRACT_GIT_CONSOLE_16_06\\TESTS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\st310-12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sujye\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1012,8 +1012,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "\\\\ectsserver.edu\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1069,7 +1067,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
