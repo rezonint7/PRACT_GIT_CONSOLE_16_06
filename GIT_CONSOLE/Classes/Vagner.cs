@@ -8,58 +8,67 @@ namespace GIT_CONSOLE.Classes
 {
     public static class Vagner
     {
-        private static readonly char[] alphabet = new char[]{ 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И','Й', 'К', 'Л', 'М', 'Н','О',
-            'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ',
-            'Э', 'Ю', 'Я', ' ', '1', '2', '3', '4', '5', '6', '7','8', '9', '0' };
-
-        private static readonly int alphabetLength = alphabet.Length;
         public static string Encrypt (string input)
         {
-            string keycode = Generate_Keycode(input.Length, 100);
-
-            input = input.ToUpper();
-            keycode = keycode.ToUpper();
+            string input_source = input;
+            string text = input.ToUpper();
+            string keyword = Generate_Keycode(text.Length, 100).ToUpper();
 
             string result = "";
-
-            int keyword_index = 0;
-            foreach(var symbol in input)
+            for(int i = 0; i < text.Length; i++)
             {
-                int index = (Array.IndexOf(alphabet, symbol) +  Array.IndexOf(alphabet, keycode[keyword_index])) % alphabetLength;
-                result += alphabet[index];
-                keyword_index++;
+                var keyChar = keyword[i % keyword.Length];
+                if (!char.IsLetter(text[i]))
+                {
+                    result += text[i];
+                    continue;
+                }
+                result += (char)(((text[i] + keyChar - 2 * 'А') % 32) + 'А');
 
-                if ((keyword_index + 1) == keycode.Length) keyword_index = 0;
+                Console.WriteLine($"{text[i]} - {text[i] * 1}");
+                Console.WriteLine($"{keyChar} - {keyChar * 1}");
             }
-            return result;
+            return keepRegister(result, input_source);
         }
+
         public static string Decrypt (string input)
         {
-            string keycode = Generate_Keycode(input.Length, 100);
-
-            input = input.ToUpper();
-            keycode = keycode.ToUpper();
+            string input_source = input;
+            string text = input.ToUpper();
+            string keyword = Generate_Keycode(text.Length, 100).ToUpper();
 
             string result = "";
-            int keyword_index = 0;
-            foreach (char symbol in input)
+            for (int i = 0; i < text.Length; i++)
             {
-                int index = (Array.IndexOf(alphabet, symbol) + alphabetLength - Array.IndexOf(alphabet, keycode[keyword_index])) % alphabetLength;
-                result += alphabet[index];
-                keyword_index++;
-
-                if ((keyword_index + 1) == keycode.Length) keyword_index = 0;
+                var keyChar = keyword[i % keyword.Length];
+                if (!char.IsLetter(text[i]))
+                {
+                    result += text[i];
+                    continue;
+                }
+                result += (char)(((text[i] - keyChar + 32) % 32) + 'А');
             }
+            return keepRegister(result, input_source);
+        }
 
+        private static string keepRegister(string text, string source)
+        {
+            string result = "";
+            for(int i = 0; i < text.Length; i++)
+            {
+                if (char.IsLower(source[i])) result += text[i].ToString().ToLower();
+                else result += text[i];
+            }
             return result;
         }
 
         private static string Generate_Keycode (int length, int startSeed)
         {
+            const string alphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
             var random = new Random(startSeed);
             string result = "";
 
-            for(int i = 0; i < length; i++) result += alphabet[random.Next(0, alphabetLength)];
+            for(int i = 0; i < length; i++) result += alphabet[random.Next(0, alphabet.Length)];
             return result;
         }
     }

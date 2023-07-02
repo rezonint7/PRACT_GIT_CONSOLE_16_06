@@ -1,28 +1,31 @@
 ﻿using GIT_CONSOLE.Classes;
 using System.Text.RegularExpressions;
 
+
+for (; ; )
+{
+    Console.WriteLine("Введите команду: ");
+    string[] rezon = new string[3] { "HELP", "0", "text.txt" };
+    var rezon_array = Console.ReadLine().Split(' ');
+
+    if (rezon_array.Length == 2)
+    {
+        rezon[0] = rezon_array[0];
+        rezon[2] = rezon_array[1];
+    }
+    else if (rezon_array.Length == 1) rezon[0] = rezon_array[0];
+    else rezon = rezon_array;
+    rezon[0] = rezon[0].ToUpper();
+
+    var text = FileWork.ReadFile(rezon[2]);
+    var result = cryptText(rezon[0], rezon[1], text);
+    if (result == "") break;
+    Console.WriteLine(result);
+    FileWork.WriteFile(rezon[2], result);
+}
 try
 {
-    for (;;)
-    {
-        Console.WriteLine("Введите команду: ");
-        string[] rezon = new string[3] { "HELP", "0", "text.txt" }; 
-        var rezon_array = Console.ReadLine().ToUpper().Split(' ');
-
-        if (rezon_array.Length == 2)
-        {
-            rezon[0] = rezon_array[0];
-            rezon[2] = rezon_array[1];
-        } 
-        else
-            rezon = rezon_array;
-
-        var text = FileWork.ReadFile(rezon[2]);
-        var result = cryptText(rezon[0], rezon[1], text);
-        if(result == "") break;
-        Console.WriteLine(result);
-        FileWork.WriteFile(rezon[2], result);
-    }
+   
 }
 catch(Exception ex)
 {
